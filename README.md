@@ -41,3 +41,12 @@ Project Requirements:
    - Provide a brief overview of the program's functionality in a README file, including instructions on how to compile and run the program.
 
 Note: You are not required to implement advanced compression algorithms like Lempel-Ziv-Welch (LZW) or DEFLATE. Focus on creating a functional program that provides basic file compression and decompression capabilities.
+
+Steps to run the program:
+1. Open the terminal and navigate to the directory where the program is saved.
+2. Type the following command to compile the program:
+   g++ -o test test.cpp
+3. Type the following command to run the program:
+   ./test -c <input file> <zip/rar file>
+   ./test -d <zip/rar file> <output file>
+

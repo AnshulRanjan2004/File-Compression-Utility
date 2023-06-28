@@ -1,13 +1,3 @@
-/*
- * Author(s)		: [Collins Nji] <collins.geek@gmail.com> 
- * Organisation		: Nerd Inc.
- * App Name			: Cassie
- * Version			: 1.0 [beta]
- * Detail			: Implementation of LZW algorithm and
- * Compile: gcc -Wall -Wextra -c -std=c++11 
- * 
-*/
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -37,8 +27,8 @@ void print_usage(const string &custom_error = "", bool show_usage_info = true)
         cout << "Where `flag` is either `-c` for compression, or `-d` for decompression, and" <<endl;
         cout << "`input` and `output` are distinct files." <<endl;
         cout << "Examples: " <<endl;
-        cout << "\t ./cassie -c sample_file.txt output_file.grm" <<endl;
-        cout << "\t ./cassie -d output_file.grm sample_file.txt" <<endl;
+        cout << "\t ./test -c sample_file.txt output_file.zip" <<endl;
+        cout << "\t ./test -d output_file.zip sample_file.txt" <<endl;
     }
 
     cout << endl;
@@ -47,7 +37,7 @@ void help_menu (){
 	cout << "cassie \t\t Nerd \t\t cassie" <<endl;
 	cout << "Usage:" << endl;
 	cout << "\t ./cassie -flag in_file out_file" <<endl;
-	cout << "\t ./cassie [-c] [-d] [-h | --help] `in_file.[extension]` out_file.grm " <<endl;
+	cout << "\t ./cassie [-c] [-d] [-h | --help] `in_file.[extension]` out_file.zip " <<endl;
 	cout << "\t\t  [-c] flag for compressing the \'in_file\' to \'out_file\'" <<endl;
 	cout << "\t\t  [-d] flag for decompressing the \'out_file\' to \'in_file\'" <<endl;
 	cout << "\t\t  [-h | --help] flag to show this message and exit" <<endl;
@@ -190,7 +180,7 @@ int main(int argc, char *argv[])
 
     ofstream output_file(argv[3], ios_base::binary);
     //checks if input file is already compressed
-    if (string(argv[2]).substr(string(argv[2]).size() - 4) == ".grm" && flag_state == Flag::Compress)
+    if (string(argv[2]).substr(string(argv[2]).size() - 4) == ".zip" && flag_state == Flag::Compress)
     {
         print_usage(string("the file `") + argv[2] + "` is already compressed.");
         return EXIT_FAILURE;
