@@ -40,7 +40,7 @@ void compress()
     //check for input file conditions
     fileEx = output_file.substr(output_file.find_last_of(".") + 1);
     ifstream is(input_file, ios_base::binary);
-    if (fileEx != "zip")
+    if (fileEx == "zip")
         throw runtime_error("File already compressed");
     if (!is || input_file == output_file)
         throw runtime_error("cannot open input file");
