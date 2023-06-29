@@ -4,6 +4,7 @@
     Works for all types of files.
     Gives compression ratio and execution time.
     Uses LZW compression algorithm.
+    Made it such that compressed file is of .zip extension. (can be changed)
 */
 
 #include <iostream>
