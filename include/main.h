@@ -6,7 +6,7 @@
 #include "LZW.h"
 using namespace std;
 
-#define PARAMETER_ERROR "Unknown Parameter
+#define PARAMETER_ERROR "Unknown Parameter"
 #define USAGE_ERROR "Correct Usage:\n\t mata54comp [-c | -d] filename"
 #define COMPRESS_PARAMETER "-c"
 #define DECOMPRESS_PARAMETER "-d"
