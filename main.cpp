@@ -1,7 +1,6 @@
 #include "headers/HuffmanUtility.hpp"
 
 int main(){
-    //give a menu option 1 for compress , 2 for decompress and 3 for exit
     do{
     int choice;
     cout<<"Enter 1 for Compressing a file"<<endl;
@@ -15,9 +14,19 @@ int main(){
         cout<<"Enter the file path to be saved"<<endl;
         string save_path;
         cin>>save_path;
+        clock_t tStart = clock();
         huffman f(path, save_path);
         f.compress();
         cout << "Compressed Successfully to file " << save_path << endl;
+        cout <<"Time taken: "<<(1.0*(clock() - tStart)/CLOCKS_PER_SEC)<<" sec"<<endl;
+        ifstream f1(path, ios::binary | ios::ate); 
+        ifstream f2(save_path, ios::binary | ios::ate);
+        int before = f1.tellg();
+        cout << "Before: " << before << " Bytes"<< endl;
+        int after = f2.tellg();
+        cout << "After: " << after <<" Bytes"<< endl;
+        double compression_ratio = (double)before / after;
+        cout << "Compression Ratio: " << compression_ratio << endl;
     }
     else if(choice==2){
         cout<<"Enter the file path to be decompressed"<<endl;
@@ -26,9 +35,19 @@ int main(){
         cout<<"Enter the file path to be saved"<<endl;
         string save_path;
         cin>>save_path;
+        clock_t tStart = clock();
         huffman f(path, save_path);
         f.decompress();
         cout << "Decompressed Successfully to file " << save_path << endl;
+        cout <<"Time taken: "<<(1.0*(clock() - tStart)/CLOCKS_PER_SEC)<<" sec"<<endl;
+        ifstream f1(path, ios::binary | ios::ate);
+        ifstream f2(save_path, ios::binary | ios::ate);
+        int before = f1.tellg();
+        cout << "Before: " << before << " Bytes"<< endl;
+        int after = f2.tellg();
+        cout << "After: " << after <<" Bytes"<< endl;
+        double compression_ratio = (double)after / before;
+        cout << "Compression Ratio: " << compression_ratio << endl;
     }
     else if(choice==3){
         exit(0);
