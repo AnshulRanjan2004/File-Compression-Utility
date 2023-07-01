@@ -30,3 +30,7 @@ This vector is used to store pointers to Node objects. It is used to represent t
 This priority queue is used to create a min-heap of Node pointers based on their frequencies. It is used during the Huffman tree construction and encoding process.
 #### fstream source, destination: 
 These objects are used to handle file input and output operations. source is used to read data from the source file, and destination is used to write data to the destination file.
+
+## Class diagram
+
+![WhatsApp Image 2023-07-01 at 10 31 46](https://github.com/AnshulRanjan2004/File-Compression-Utility/assets/91585064/2fc7688b-ec56-45f3-adb6-4c3d22ef281f)
