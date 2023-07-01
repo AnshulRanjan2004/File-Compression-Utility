@@ -34,3 +34,13 @@ These objects are used to handle file input and output operations. source is use
 ## Class diagram
 
 ![WhatsApp Image 2023-07-01 at 10 31 46](https://github.com/AnshulRanjan2004/File-Compression-Utility/assets/91585064/2fc7688b-ec56-45f3-adb6-4c3d22ef281f)
+
+### Running the Program
+Complie:
+```bat
+g++ -o <name-you-want-to-give> main.cpp
+```
+Running:
+```bat
+./myprogram.exe
+```
