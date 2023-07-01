@@ -9,11 +9,15 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QDesktopServices>
 
 using namespace std;
 string a;
 string destinationFileStr;
 QString destinationFilePath;
+QString qDestinationFilePath;
+string dest;
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -194,6 +198,7 @@ void MainWindow::on_pushButton_2_clicked()
 {
     huffman huff(a, "C:\\Users\\Public\\OneDrive\\Documents\\summercourse\\cpp_project\\ram.zip");
     huff.compress();
+    dest = "C:\\Users\\Public\\OneDrive\\Documents\\summercourse\\cpp_project\\ram.zip";
     cout << "File compressed successfully!" << endl;
 }
 
@@ -284,7 +289,7 @@ void huffman::GetTree() {
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    QString destinationFilePath = QFileDialog::getSaveFileName(
+    destinationFilePath = QFileDialog::getSaveFileName(
         this,
         tr("Save File"),
         "C://Users//Public//OneDrive//Documents//summercourse//cpp_project",
@@ -304,7 +309,7 @@ void MainWindow::on_pushButton_3_clicked()
     cout << "DeCompressed Successfully to file" << endl;
     cout <<"Time taken: "<<(float)clock() / CLOCKS_PER_SEC << endl;
     ifstream f1(a, ios::binary | ios::ate);
-    ifstream f2(destinationFileStr, ios::binary | ios::ate);
+    ifstream f2(dest, ios::binary | ios::ate);
     int before = f1.tellg();
     cout << "Before: " << before << " Bytes"<< endl;
     int after = f2.tellg();
@@ -357,15 +362,16 @@ void huffman::SaveDecodedFile() {
 }
 
 
-
-
 void MainWindow::on_pushButton_5_clicked()
 {
-    QString newfile = QFileDialog::getOpenFileName(
-        this,
-        tr("Open File"),
-        destinationFilePath,
-        "All files (*.*);;Text File (*.txt);;Music file(*.mp3)"
-        );
+    QString qDestinationFilePath = QString::fromStdString(destinationFileStr);
+    QDesktopServices::openUrl(QUrl::fromLocalFile(qDestinationFilePath));
+}
+
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    system("explorer C:\\Users\\Public\\OneDrive\\Documents\\summercourse\\cpp_project\\File-Compression-Utility\\classdiagram.jpg");
 }
 
