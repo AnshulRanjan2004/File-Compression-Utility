@@ -6,9 +6,9 @@ You have been tasked with developing a file compression utility using C++ versio
 Project Requirements:
 1. User Interface:
    - The program should display a menu with the following options:
-     a) Compress a file
-     b) Decompress a file
-     c) Exit the program
+     1. Compress a file
+     2. Decompress a file
+     3. Exit the program
    - The program should repeatedly prompt the user for a menu choice until the user chooses to exit.
 
 2. File Compression Algorithm:
